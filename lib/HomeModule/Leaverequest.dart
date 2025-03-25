@@ -1,5 +1,8 @@
 import 'package:alohub/HomeModule/LeaveDetails.dart';
 import 'package:flutter/material.dart';
+import 'package:scrollable_clean_calendar/controllers/clean_calendar_controller.dart';
+import 'package:scrollable_clean_calendar/scrollable_clean_calendar.dart';
+import 'package:scrollable_clean_calendar/utils/enums.dart';
 
 class Leaverequest extends StatefulWidget {
   const Leaverequest({super.key});
@@ -9,6 +12,20 @@ class Leaverequest extends StatefulWidget {
 }
 
 class _LeaverequestState extends State<Leaverequest> {
+   final calendarController = CleanCalendarController(
+    minDate: DateTime.now(),
+    maxDate: DateTime.now().add(const Duration(days: 365)),
+    onRangeSelected: (firstDate, secondDate) {},
+    onDayTapped: (date) {},
+    // readOnly: true,
+    onPreviousMinDateTapped: (date) {},
+    onAfterMaxDateTapped: (date) {},
+    weekdayStart: DateTime.monday,
+    // initialFocusDate: DateTime(2023, 5),
+    // initialDateSelected: DateTime(2022, 3, 15),
+    // endDateSelected: DateTime(2022, 3, 20),
+  );
+
   final _formkey = GlobalKey<FormState>();
   TextEditingController titleeditingcontroller = TextEditingController();
   TextEditingController startdatecontroller = TextEditingController();
@@ -17,7 +34,8 @@ class _LeaverequestState extends State<Leaverequest> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(automaticallyImplyLeading: true,
+        appBar: AppBar(
+          automaticallyImplyLeading: true,
           centerTitle: true,
           title: Text(
             "Leave Request",
@@ -27,7 +45,6 @@ class _LeaverequestState extends State<Leaverequest> {
                 fontWeight: FontWeight.bold,
                 color: Colors.black),
           ),
-         
         ),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 40),
@@ -118,7 +135,11 @@ class _LeaverequestState extends State<Leaverequest> {
                   decoration: InputDecoration(
                       counterText: "",
                       hintText: "24-10-2023",
-                      suffixIcon: Icon(Icons.calendar_month_outlined),
+                      suffixIcon: InkWell(onTap: () {   calendarController.clearSelectedDates();
+
+                        
+                      },
+                        child: Icon(Icons.calendar_month_outlined)),
                       hintStyle: TextStyle(fontSize: 13, fontFamily: 'poppins'),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(3))),
@@ -166,10 +187,15 @@ class _LeaverequestState extends State<Leaverequest> {
                   child: ElevatedButton(
                     onPressed: () {
                       if (_formkey.currentState!.validate()) {
-                        Navigator.pop(
+                        Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => Leavepage()));
+                                builder: (context) => Leavepage(
+                                      titlevalue: titleeditingcontroller.text
+                                          .toString(),
+                                      startdate:
+                                          startdatecontroller.text.toString(),
+                                    )));
                       } else {
                         print("Failure");
                       }
@@ -181,6 +207,13 @@ class _LeaverequestState extends State<Leaverequest> {
                         backgroundColor: Color.fromARGB(255, 52, 147, 206),
                         foregroundColor: Color.fromARGB(255, 231, 231, 250)),
                   ),
+                ),
+                SizedBox(height: 100,width: 200,
+                  child: ScrollableCleanCalendar(
+                            calendarController: calendarController,
+                            layout: Layout.BEAUTY,
+                            calendarCrossAxisSpacing: 0,
+                          ),
                 ),
               ],
             ),

@@ -1,3 +1,4 @@
+import 'package:alohub/HomeModule/LeaveDetails.dart';
 import 'package:alohub/HomeModule/Leaverequest.dart';
 import 'package:alohub/homepage.dart';
 import 'package:flutter/material.dart';
@@ -96,7 +97,7 @@ class _AttendanceState extends State<Attendance> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => Leaverequest()));
+                              builder: (context) =>Leavepage ()));
                     },
                     child: Icon(
                       Icons.assignment_add,
