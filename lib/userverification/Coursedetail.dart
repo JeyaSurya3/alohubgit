@@ -4,7 +4,10 @@ import 'package:flutter_rating_stars/flutter_rating_stars.dart';
 import 'package:flutter/widgets.dart';
 
 class Coursedetail extends StatefulWidget {
-  const Coursedetail({super.key});
+  String? name1value;
+  bool? colorschange;
+  String? imagechange;
+  Coursedetail({super.key, this.name1value, this.colorschange,this.imagechange});
 
   @override
   State<Coursedetail> createState() => _CoursedetailState();
@@ -29,15 +32,14 @@ class _CoursedetailState extends State<Coursedetail> {
                         bottomLeft: Radius.circular(8),
                         bottomRight: Radius.circular(8)),
                     child: Image.asset(
-                      "assets/images/Ulogo.png",
+                     widget.imagechange.toString(),
                       fit: BoxFit.cover,
                     ),
                   ),
                 ),
                 InkWell(
                   onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Home()));
+                    Navigator.pop(context);
                   },
                   child: Icon(
                     Icons.arrow_back,
@@ -58,12 +60,14 @@ class _CoursedetailState extends State<Coursedetail> {
                   child: Column(
                     children: [
                       Text(
-                        "UI/UX Design ",
+                        widget.name1value.toString(),
                         style: TextStyle(
                             fontFamily: 'poppins',
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
-                            color: Colors.black),
+                            color: widget.colorschange == true
+                                ? Colors.black
+                                :  Color.fromARGB(255, 24, 23, 23)),
                       ),
                       RichText(
                           text: TextSpan(

@@ -19,22 +19,28 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
-  
-  List<String> Banner = [
+  List<String> imagechangerr = [
+    "assets/images/Ulogo.png",
+    "assets/images/Ulogo.png",
+    "assets/images/Ulogo.png",
+    "assets/images/Ulogo.png",
+  ];
+
+  List<String> banner = [
     "assets/images/Frame.png",
     "assets/images/alologo.png",
     "assets/images/alologo.png",
     "assets/images/alologo.png",
   ];
 
-  List<String> Popular = [
+  List<String> popular = [
     "UI/UX Design",
     "Graphic Design",
     "UI/UX Design",
     "Graphic Design",
   ];
 
-  List<String> Fewimages = [
+  List<String> fewimages = [
     "assets/images/1.png",
     "assets/images/2.png",
     "assets/images/1.png",
@@ -46,7 +52,7 @@ class _HomepageState extends State<Homepage> {
     "assets/images/alologo.png",
     "assets/images/alologo.png",
   ];
-  List<Widget> Bottombar = [
+  List<Widget> bottombar = [
     Icon(Icons.home),
     Icon(Icons.menu),
     Icon(Icons.menu_book),
@@ -118,7 +124,7 @@ class _HomepageState extends State<Homepage> {
                   ),
                 ),
                 CarouselSlider(
-                  items: Banner.map((e) {
+                  items: banner.map((e) {
                     return Container(
                       decoration: const BoxDecoration(),
                       child: ClipRRect(
@@ -138,7 +144,7 @@ class _HomepageState extends State<Homepage> {
                   ),
                 ),
                 DotsIndicator(
-                  dotsCount: Banner.length,
+                  dotsCount:  banner.length,
                   position: currentIndex.toDouble(),
                 )
               ],
@@ -311,7 +317,7 @@ class _HomepageState extends State<Homepage> {
             padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 5),
             child: Column(
               children: [
-                 Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
@@ -324,8 +330,10 @@ class _HomepageState extends State<Homepage> {
                     ),
                     InkWell(
                       onTap: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => Viewall2()));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Viewall2()));
                       },
                       child: Text(
                         "view all",
@@ -344,14 +352,17 @@ class _HomepageState extends State<Homepage> {
                   height: 140,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
-                    itemCount: Fewimages.length,
+                    itemCount: fewimages.length,
                     itemBuilder: (context, index) {
                       return InkWell(
                         onTap: () {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => Coursedetail()));
+                                  builder: (context) => Coursedetail(
+                                        name1value: popular[index],
+                                        imagechange: imagechangerr[index],
+                                      )));
                         },
                         child: Padding(
                           padding: const EdgeInsets.all(5.0),
@@ -365,7 +376,7 @@ class _HomepageState extends State<Homepage> {
                               children: [
                                 Container(
                                   child:
-                                      Image.asset(Fewimages[index].toString()),
+                                      Image.asset(fewimages[index].toString()),
                                   decoration: BoxDecoration(),
                                 ),
                                 Row(
@@ -373,7 +384,7 @@ class _HomepageState extends State<Homepage> {
                                     SizedBox(
                                       width: 5,
                                     ),
-                                    Text(Popular[index].toString(),
+                                    Text(popular[index].toString(),
                                         style: TextStyle(
                                             fontFamily: 'poppins',
                                             fontSize: 10,

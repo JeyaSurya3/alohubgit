@@ -6,7 +6,7 @@ class Leavepage extends StatefulWidget {
   String? titlevalue;
   String? startdate;
 
-  Leavepage({super.key, this.titlevalue,this.startdate});
+  Leavepage({super.key, this.titlevalue, this.startdate});
 
   @override
   State<Leavepage> createState() => _LeavepageState();
@@ -23,6 +23,17 @@ List<String> Hoiii = [
   "Lorem ipsum",
   "Lorem ipsum",
 ];
+
+Widget text(String? name) {
+  return Text(
+    name.toString(),
+    style: TextStyle(
+        color: Bluestatic.kDarkBlueColor,
+        fontFamily: 'poppins',
+        fontSize: 12,
+        fontWeight: FontWeight.bold),
+  );
+}
 
 class _LeavepageState extends State<Leavepage> {
   @override
@@ -48,21 +59,13 @@ class _LeavepageState extends State<Leavepage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 InkWell(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => Leaverequest()));
-                  },
-                  child: Text(
-                    "+ Leave Request",
-                    style: TextStyle(
-                        color: Bluestatic.kDarkBlueColor,
-                        fontFamily: 'poppins',
-                        fontSize: 12,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ),
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Leaverequest()));
+                    },
+                    child: text("+leave Request")),
               ],
             ),
           ),
@@ -87,7 +90,7 @@ class _LeavepageState extends State<Leavepage> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                  widget.titlevalue.toString(),
+                                    widget.titlevalue.toString(),
                                     style: TextStyle(
                                         fontFamily: 'poppins',
                                         fontSize: 20,

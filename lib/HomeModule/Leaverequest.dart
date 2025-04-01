@@ -12,14 +12,14 @@ class Leaverequest extends StatefulWidget {
 }
 
 class _LeaverequestState extends State<Leaverequest> {
-   final calendarController = CleanCalendarController(
+  final calendarController = CleanCalendarController(
     minDate: DateTime.now(),
     maxDate: DateTime.now().add(const Duration(days: 365)),
     onRangeSelected: (firstDate, secondDate) {},
     onDayTapped: (date) {},
     // readOnly: true,
     onPreviousMinDateTapped: (date) {},
-    onAfterMaxDateTapped: (date) {},
+    onAfterMaxDateTapped: (date) {},  
     weekdayStart: DateTime.monday,
     // initialFocusDate: DateTime(2023, 5),
     // initialDateSelected: DateTime(2022, 3, 15),
@@ -31,6 +31,10 @@ class _LeaverequestState extends State<Leaverequest> {
   TextEditingController startdatecontroller = TextEditingController();
   TextEditingController enddatedatecontroller = TextEditingController();
   TextEditingController reasoncontroller = TextEditingController();
+  Widget icon(IconData? icon) {
+    return Icon(icon);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -105,7 +109,7 @@ class _LeaverequestState extends State<Leaverequest> {
                   decoration: InputDecoration(
                       counterText: "",
                       hintText: "24-10-2023",
-                      suffixIcon: Icon(Icons.calendar_month_outlined),
+                      suffixIcon: icon(Icons.calendar_month_outlined),
                       hintStyle: TextStyle(fontSize: 13, fontFamily: 'poppins'),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(3))),
@@ -135,11 +139,11 @@ class _LeaverequestState extends State<Leaverequest> {
                   decoration: InputDecoration(
                       counterText: "",
                       hintText: "24-10-2023",
-                      suffixIcon: InkWell(onTap: () {   calendarController.clearSelectedDates();
-
-                        
-                      },
-                        child: Icon(Icons.calendar_month_outlined)),
+                      suffixIcon: InkWell(
+                          onTap: () {
+                            calendarController.clearSelectedDates();
+                          },
+                          child: Icon(Icons.calendar_month_outlined)),
                       hintStyle: TextStyle(fontSize: 13, fontFamily: 'poppins'),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(3))),
@@ -200,7 +204,7 @@ class _LeaverequestState extends State<Leaverequest> {
                         print("Failure");
                       }
                     },
-                    child: const Text("Save Request"),
+                    child: Text("Save Request"),
                     style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(3)),
@@ -208,12 +212,14 @@ class _LeaverequestState extends State<Leaverequest> {
                         foregroundColor: Color.fromARGB(255, 231, 231, 250)),
                   ),
                 ),
-                SizedBox(height: 100,width: 200,
+                SizedBox(
+                  height: 100,
+                  width: 200,
                   child: ScrollableCleanCalendar(
-                            calendarController: calendarController,
-                            layout: Layout.BEAUTY,
-                            calendarCrossAxisSpacing: 0,
-                          ),
+                    calendarController: calendarController,
+                    layout: Layout.BEAUTY,
+                    calendarCrossAxisSpacing: 0,
+                  ),
                 ),
               ],
             ),
