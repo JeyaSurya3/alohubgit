@@ -17,3 +17,4 @@ class CustomFonts {
       fontSize: 18.0,
       fontWeight: FontWeight.w600);
 }
+ 

@@ -11,7 +11,8 @@ class _FeeDetailsState extends State<FeeDetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(automaticallyImplyLeading: true,
+      appBar: AppBar(
+        automaticallyImplyLeading: true,
         centerTitle: true,
         title: Text(
           "Fee Details",
@@ -21,7 +22,6 @@ class _FeeDetailsState extends State<FeeDetails> {
               fontWeight: FontWeight.bold,
               color: Colors.black),
         ),
-       
       ),
       body: Column(
         children: [
@@ -180,42 +180,46 @@ class _FeeDetailsState extends State<FeeDetails> {
                     itemCount: 2,
                     itemBuilder: (BuildContext ctx, index) {
                       return Container(
-                          alignment: Alignment.center,
-                          decoration: BoxDecoration(
-                              color: Color.fromARGB(255, 252, 251, 249),
-                              borderRadius: BorderRadius.circular(15)),
-                          child: 
-                            
-                              Padding(
-                                padding: const EdgeInsets.all(20.0),
-                                child: Column(crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Row(mainAxisAlignment: MainAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          "Friday 20, October 2023",
-                                          style: TextStyle(
-                                            color: Colors.blue,
-                                            fontSize: 14,
-                                          ),
-                                        ),
-                                      ],
-                                    ), Text(
-                                          "Due no : 1",
-                                          style: TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 14,
-                                          ),), Text(
-                                          "₹ 6000",
-                                          style: TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 20,fontWeight: FontWeight.bold
-                                          ),)
-                                  ],
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                            color: Color.fromARGB(255, 252, 251, 249),
+                            borderRadius: BorderRadius.circular(15)),
+                        child: Padding(
+                          padding: const EdgeInsets.all(20.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Friday 20, October 2023",
+                                    style: TextStyle(
+                                      color: Colors.blue,
+                                      fontSize: 14,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Text(
+                                "Due no : 1",
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 14,
                                 ),
                               ),
-                  );
-                  }),
+                              Text(
+                                "₹ 6000",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold),
+                              )
+                            ],
+                          ),
+                        ),
+                      );
+                    }),
               ),
             ),
           ),

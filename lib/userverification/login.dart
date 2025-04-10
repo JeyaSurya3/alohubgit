@@ -116,7 +116,7 @@ class _LoginpageState extends State<Loginpage> {
                     backgroundColor: Color.fromARGB(255, 52, 147, 206),
                     foregroundColor: Color.fromARGB(255, 231, 231, 250)),
               ),
-            )
+            ),Container(child: Image.asset("assets/images/homevector.png",fit: BoxFit.fill,),width: double.infinity)
           ]),
         ),
       ),

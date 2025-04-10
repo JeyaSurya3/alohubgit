@@ -6,8 +6,10 @@ import 'package:alohub/HomeModule/Leaverequest.dart';
 import 'package:alohub/HomeModule/Note.dart';
 import 'package:alohub/HomeModule/Profile.dart';
 import 'package:alohub/HomeModule/T&s.dart';
+import 'package:alohub/firebase_options.dart';
 import 'package:alohub/homepage.dart';
 import 'package:alohub/userverification/viewall2.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 import 'HomeModule/Favorite.dart';
@@ -18,7 +20,12 @@ import 'userverification/Viewall1.dart';
 import 'userverification/jobdetails.dart';
 import 'userverification/login.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );  print('✅ Firebase initialized successfully');
+
   runApp(const MyApp());
 }
 
@@ -50,7 +57,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home:Favorite ());
+        home: Loginpage());
   }
 }
 

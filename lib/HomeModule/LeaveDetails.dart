@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 class Leavepage extends StatefulWidget {
   String? titlevalue;
   String? startdate;
+  
 
   Leavepage({super.key, this.titlevalue, this.startdate});
 

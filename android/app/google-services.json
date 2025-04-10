@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "560981141291",
+    "project_id": "alo-hub-fb0b0",
+    "storage_bucket": "alo-hub-fb0b0.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:560981141291:android:367d9c148a69869518c76e",
+        "android_client_info": {
+          "package_name": "com.alohub"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTanq2Lff5aBUxkttoKI-V5yG7sD6rcyY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

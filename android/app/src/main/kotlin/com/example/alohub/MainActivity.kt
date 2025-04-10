@@ -1,4 +1,4 @@
-package com.example.alohub
+package com.alohub
 
 import io.flutter.embedding.android.FlutterActivity
 
